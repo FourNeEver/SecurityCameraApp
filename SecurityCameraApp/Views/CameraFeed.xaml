@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:SecurityCameraApp.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="SecurityCameraApp.CameraFeed"
+             Title="CameraFeed"
+             x:DataType="viewmodels:CameraFeedViewModel"
+             >
+    <ContentPage.BindingContext>
+        <viewmodels:CameraFeedViewModel/>
+    </ContentPage.BindingContext>
+
+    <FlexLayout JustifyContent="SpaceEvenly"
+                Wrap="Wrap">
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+        Spacing="20">
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Button 
+                    Scale="0.8"
+                    Text="Connect"
+                    Command="{Binding Connect}"
+                    HorizontalOptions="Start"
+                    IsEnabled="{Binding ConnectEnabled}"
+                    />
+                <Border
+            WidthRequest="400"
+            MinimumWidthRequest="200" 
+            HeightRequest="30"
+            Stroke="White"
+            BackgroundColor="DimGray"
+            StrokeShape="RoundRectangle 40,40,40,40">
+                    <Label x:Name="Test"
+            Text="{Binding ConnectStatus}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            />
+                </Border>
+                <Button
+                        Scale="0.8"
+                    Text="Settings"
+                    Command="{Binding NavigateSettings}"
+                    HorizontalOptions="Start"
+                    />
+            </HorizontalStackLayout>
+            <!--<Ellipse x:Name="VideoLoad"
+            Stroke="White"
+            StrokeThickness="4"
+            StrokeDashArray="1,1"
+            HeightRequest="100"
+            WidthRequest="100"
+            IsVisible="false"
+            />-->
+            <AbsoluteLayout
+                MinimumWidthRequest="120"
+                MinimumHeightRequest="80"
+                FlexLayout.Shrink="5">
+                <Image x:Name="Feed"
+            Source="{DynamicResource Frame}"
+            BackgroundColor="Transparent"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            MinimumWidthRequest="120"
+            MinimumHeightRequest="80"
+            MaximumHeightRequest="480"
+            MaximumWidthRequest="640"/>
+                <Label
+                Text="{Binding FrameRate}"
+                TextColor="Red"
+                AbsoluteLayout.LayoutBounds="490,460,65,20"
+            />
+            </AbsoluteLayout>
+
+        </VerticalStackLayout>
+        <VerticalStackLayout
+            Spacing="10"
+            VerticalOptions="Center">
+            <Label Text="Maunual Control"
+                   FontSize="Subtitle"/>
+            <Switch IsToggled="False"
+                    HorizontalOptions="Center"
+                    TranslationX="50"/>
+            <VerticalStackLayout VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Spacing="10">
+                <ImageButton x:Name="MoveUp"
+                        Scale="1"
+                    Source="{DynamicResource Arrow}"
+                    HorizontalOptions="Center"
+                    Rotation="270"
+                    HeightRequest="30"
+                    WidthRequest="30"
+                    />
+                <HorizontalStackLayout
+                Spacing="50">
+                    <ImageButton x:Name="MoveLeft"
+                    Source="{DynamicResource Arrow}"
+                    Rotation="180"
+                    HeightRequest="30"
+                    WidthRequest="30"
+                    />
+                    <ImageButton x:Name="MoveRight"
+                    Source="{DynamicResource Arrow}"
+                    HeightRequest="30"
+                    WidthRequest="30"
+                    />
+                </HorizontalStackLayout>
+                <ImageButton x:Name="MoveDown"
+                    Source="{DynamicResource Arrow}"
+                    Rotation="90"
+                    HeightRequest="30"
+                    WidthRequest="30"
+                    />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </FlexLayout>
+</ContentPage>
+    

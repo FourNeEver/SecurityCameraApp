@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SecurityCameraApp.SettingsPage"
+             Title="SettingsPage">
+    <FlexLayout JustifyContent="SpaceAround"
+                Wrap="Wrap"
+                Direction="Column"
+                AlignContent="Center"
+                >
+        <Label 
+            Text="Connection Settings"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Server IP Adress"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="Adress"
+               Text="{DynamicResource Adress}"
+               Placeholder="0.0.0.0"
+               HorizontalOptions="Center"
+               TextChanged="OnEntryIPChanged"/>
+        <Label x:Name="IpError"
+            Text="Invalid Ip Adress"
+            IsVisible="false"
+            TextColor="Red"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <HorizontalStackLayout
+            HorizontalOptions="CenterAndExpand"
+            Spacing="70">
+            <VerticalStackLayout
+                Spacing="10">
+        <Label 
+            Text="Video Port"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="VPort"
+               Text="{DynamicResource VPort}"
+               Placeholder="00000"
+               HorizontalOptions="Center"
+               TextChanged="VPort_TextChanged"/>
+
+        <Label x:Name="VPortError"
+            Text="Invalid Port"
+            IsVisible="false"
+            TextColor="Red"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+    <VerticalStackLayout
+        Spacing="10">
+    <Label 
+            Text="Control Port"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="CPort"
+               Text="{DynamicResource CPort}"
+               Placeholder="00000"
+               HorizontalOptions="Center"
+               TextChanged="CPort_TextChanged"/>
+
+        <Label x:Name="CPortError"
+            Text="Invalid Port"
+            IsVisible="false"
+            TextColor="Red"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Label 
+            Text="Control Settings"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <HorizontalStackLayout
+            HorizontalOptions="CenterAndExpand"
+            Spacing="10">
+            <VerticalStackLayout
+                Spacing="10">
+        <Label 
+            Text="Oś 1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Transmision Ratio"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="TR1"
+               Text="{DynamicResource TR1}"
+               Placeholder="0"
+               HorizontalOptions="Center"
+               />
+        <Label 
+            Text="Max Speed"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="MS1"
+               Text="{DynamicResource MS1}"
+               Placeholder="1"
+               HorizontalOptions="Center"
+               />
+        
+        <Picker x:Name="picker"
+        Title="Rozdzielczość silnika"
+                HorizontalOptions="Center"
+                SelectedIndexChanged="picker_SelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>4</x:String>
+                    <x:String>8</x:String>
+                    <x:String>16</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+            </VerticalStackLayout>
+    <VerticalStackLayout
+        Spacing="10">
+    <Label 
+            Text="Oś 2"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Transmision Ratio"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="TR2"
+               Text="{DynamicResource TR2}"
+               Placeholder="0"
+               HorizontalOptions="Center"
+               />
+        <Label 
+            Text="Max Speed"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry x:Name="MS2"
+               Text="{DynamicResource MS2}"
+               Placeholder="1"
+               HorizontalOptions="Center"
+               />
+
+        <Picker x:Name="picker2"
+        Title="Rozdzielczość silnika"
+                HorizontalOptions="Center"
+                SelectedIndexChanged="picker2_SelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>4</x:String>
+                    <x:String>8</x:String>
+                    <x:String>16</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <Button x:Name="Confirm"
+                    Text="Confirm"
+                    Clicked="Confirm_Clicked"
+                    HorizontalOptions="Center"
+                    />
+    </FlexLayout>
+</ContentPage>
